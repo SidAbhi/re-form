@@ -1,11 +1,12 @@
 import React from 'react';
-import {BrowserRouter as Route, Switch, Router} from 'react-router-dom'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import Main from '../components/Main';
 
 const App = () => {
   return (
-    <div className="main">
-      Test
-    </div>
+    <Switch>
+      <Route path="/" exact component={Main} />
+    </Switch>
   );
 };
 
