@@ -1,12 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&family=Proza+Libre:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+$font-body: 'Open Sans', sans-serif;
+$font-head: 'Proza Libre', sans-serif;
+
 body {
   background-color: #fff;
   color: #333;
-  margin: 33px; }
-
-body, p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px; }
+  margin: 33px;
+  font-size: 16px;
+  line-height: 1.4em;  
+  font-family: $font-body;
+  font-weight: 500;
+}
 
 pre {
   background-color: #eee;

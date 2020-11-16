@@ -8,14 +8,23 @@ module Api
       # GET /posts
       # GET /posts.json
       def index
-        @posts = Post.all
+        posts = Post.all.order(created_at: :desc)
 
-        render json: @posts
+        if posts
+          render json: posts
+        else
+          render json: posts.errors
+        end
       end
     
       # GET /posts/1
       # GET /posts/1.json
       def show
+        if @post
+          render json: @post
+        else
+          render json: @post.errors
+        end
       end
     
       # GET /posts/new
@@ -35,7 +44,7 @@ module Api
         respond_to do |format|
           if @post.save
             #format.html { redirect_to @post, notice: 'Post was successfully created.' }
-            format.json { render :show, status: :created, location: @post }
+            format.json { render :show, status: :created, location: url_for([:api, :v1, :posts, :id]) }
           else
             #format.html { render :new }
             format.json { render json: @post.errors, status: :unprocessable_entity }
@@ -61,10 +70,7 @@ module Api
       # DELETE /posts/1.json
       def destroy
         @post.destroy
-        respond_to do |format|
-          #format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
-          format.json { head :no_content }
-        end
+        render json: {message: 'Post deleted!'}
       end
     
       private

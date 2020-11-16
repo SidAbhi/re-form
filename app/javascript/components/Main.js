@@ -9,6 +9,7 @@ const Main = () => {
   useEffect(() => {
     axios.get(api)
     .then(resp => {
+      console.log(resp);
       setPosts(resp.data);
     })
     .then(console.log(posts))
@@ -23,7 +24,10 @@ const Main = () => {
 
 
   return (
-    <div>
+    <div className = "main">
+      <div className = "submit">
+        
+      </div>
       {postsList}
     </div>
   )
